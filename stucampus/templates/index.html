@@ -34,7 +34,7 @@
                     <p class="banner_describe">{{ article.summary }}</p>
                     <p class="banner_category">{{ article.category }}</p>
                 </div>
-                <img src="{{ article.cover.url | scale_qiniu_img:request}}" alt="{{ article.title | truncatechars:19  }}" />
+                <img src="{{ article.cover.name | scale_qiniu_img:request}}" alt="{{ article.title | truncatechars:19  }}" />
             </a>
         {% endfor %}
         </div>
@@ -44,7 +44,7 @@
         {% for article in newest_articles %}
             <div class="artical">
                 <a href="{% url 'articles:display' article.pk %}">
-                    <img class="a-pic" src=" {{ article.cover.url | scale_qiniu_img:request }}">
+                    <img class="a-pic" src=" {{ article.cover.name | scale_qiniu_img:request }}">
                     <div class="a-content">
                         <span class="a-title">{{ article.title | truncatechars:19  }}</span>
                         <div class="a-info">
@@ -95,6 +95,16 @@
                     </div>
             </div>
             <div class="side-card">
+                <div class="shadow">
+                    <p class="card-title">栏目频道</p>
+                    <div class="nav-content">
+                        {% for category in categories%}
+                        <a href="{% url 'articles:list' category.english_name %}">{{ category.name }}</a>
+                        {% endfor %} 
+                    </div>
+                </div>
+            </div>
+            <div class="side-card">
                 <p class="card-title">最新评论</p>
                 {% if comments %}
                     {% for comment in comments %}
@@ -111,19 +121,16 @@
                 {% endif %}
             </div>
             <div class="side-card">
-                <div class="shadow">
-                    <p class="card-title">最近访客</p>
-                    <div class="content">
-                        {% if visitors %}
-                            {% for visitor in visitors %}
-                            <a class="visitor" href="{{ visitor.url }}">
-                                <img src="{{ visitor.avatar_url }}" alt="{{ visitor.name }}" />
-                                <p>{{ visitor.name }}</p>
-                            </a>
-                            {% endfor %}
-                        {% endif %}
-                        
-                    </div>
+                <p class="card-title">最近访客</p>
+                <div class="content">
+                    {% if visitors %}
+                        {% for visitor in visitors %}
+                        <a class="visitor" href="{{ visitor.url }}">
+                            <img src="{{ visitor.avatar_url }}" alt="{{ visitor.name }}" />
+                            <p>{{ visitor.name }}</p>
+                        </a>
+                        {% endfor %}
+                    {% endif %}  
                 </div>
             </div>
         </div>

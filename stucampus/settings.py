@@ -37,6 +37,8 @@ USE_TZ = True
 LOGIN_URL = '/account/signin'
 
 MEDIA_ROOT = path(ROOT, 'webroot', 'media')
+
+
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = path(ROOT, 'webroot', 'static')
@@ -44,9 +46,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     path('stucampus', 'static'),
 )
-#七牛的配置
-DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuMediaStorage'
-STATICFILES_STORAGE  = 'qiniustorage.backends.QiniuStaticStorage'
+
+#七牛的配置,如果开启，ImageField和FileField上传的图片不会保存在本地，会自动上传到七牛
+
+#DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuMediaStorage'
+#STATICFILES_STORAGE  = 'qiniustorage.backends.QiniuStaticStorage'
 
 QINIU_ACCESS_KEY = '4JBSsVDFK80Vu6c3f36AtEYl-5wadK-ZoWb-os5w'
 QINIU_SECRET_KEY = 'F8bNfqtPKrlgswQfCqaKGsftm8ZCE12r5ySTsEXJ'
