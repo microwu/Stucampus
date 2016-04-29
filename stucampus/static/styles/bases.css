@@ -69,7 +69,7 @@ body{
 	    letter-spacing: 0.24rem;
 	    box-shadow: 0 0.2rem 0.2rem rgba(0,0,0,0.32);
 	}
-	a.fixed-logo{
+	.fixed-logo{
 	    display: block;
 	    position: fixed;
 	    right: 1.066667rem;
@@ -88,7 +88,7 @@ body{
 	    -webkit-transition: transform 0.5s ease-out,opacity 0.5s ease-out;
 	    -o-transition: transform 0.5s ease-out,opacity 0.5s ease-out;
 	    -moz-transition: transform 0.5s ease-out,opacity 0.5s ease-out;
-	    box-shadow: 0 0.666667rem 0.666667rem rgba(0,0,0,0.19);
+	    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	}
 	.fixed-logo img{
 	    display: block;
