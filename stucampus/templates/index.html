@@ -48,7 +48,7 @@
                     <div class="a-content">
                         <span class="a-title">{{ article.title | truncatechars:19  }}</span>
                         <div class="a-info">
-                            {{ article.category }}·{{ article.create_date | date:"n月d日"}}
+                            {{ article.author }} · {{ article.category }} · {{ article.create_date | date:"n月d日"}}
                         </div>
                         <p class="a-intro">{{ article.summary }}</p>
                     </div>
@@ -70,7 +70,6 @@
 
         <div class="side-content">
             <div class="sidenav">
-                <div class="shadow">
                     <p class="card-title">深大导航</p>
                     <div class="nav-content">
                         <a href="http://www.szu.edu.cn/board/" target="_blank">公文通</a>
@@ -94,7 +93,6 @@
                         <a href="http://192.168.2.20/axsxx/AASZUstd.ASP" target="_blank">绩点查询</a>
                         <a href="http://swzx.szu.edu.cn/swzx_view_affair_details.asp?affair_id=14c99c402ddab519" target="_blank">联系老师</a>
                     </div>
-                </div>
             </div>
             <div class="side-card">
                 <div class="shadow">
@@ -107,37 +105,32 @@
                 </div>
             </div>
             <div class="side-card">
-                <div class="shadow">
-                    <p class="card-title">最新评论</p>
-                    {% if comments %}
-                        {% for comment in comments %}
-                        <div class="comment">
-                            <a href="{{comment.comment_author_url}}">
-                                <img src="{{ comment.comment_author_avatar_url }}" alt="{{ comment.comment_author_name }}" />
-                                <span>{{ comment.comment_author_name }}</span>
-                            </a>
-                            <p class="comment-source">{{ comment.comment_created_at }} 在 {{ comment.article_title }} 中评论:</p>
-                            <p class="comment-value">{{ comment.comment_content }}</p>
-                            <a href="{{ comment.article_url }}">进入文章查看全文</a>
-                        </div>
-                        {% endfor %}
-                    {% endif %}
-                </div>
+                <p class="card-title">最新评论</p>
+                {% if comments %}
+                    {% for comment in comments %}
+                    <div class="comment">
+                        <a href="{{comment.comment_author_url}}">
+                            <img src="{{ comment.comment_author_avatar_url }}" alt="{{ comment.comment_author_name }}" />
+                            <span>{{ comment.comment_author_name }}</span>
+                        </a>
+                        <p class="comment-source">{{ comment.comment_created_at }} 在 {{ comment.article_title }} 中评论:</p>
+                        <p class="comment-value">{{ comment.comment_content }}</p>
+                        <a href="{{ comment.article_url }}">进入文章查看全文</a>
+                    </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div class="side-card">
-                <div class="shadow">
-                    <p class="card-title">最近访客</p>
-                    <div class="content">
-                        {% if visitors %}
-                            {% for visitor in visitors %}
-                            <a class="visitor" href="{{ visitor.url }}">
-                                <img src="{{ visitor.avatar_url }}" alt="{{ visitor.name }}" />
-                                <p>{{ visitor.name }}</p>
-                            </a>
-                            {% endfor %}
-                        {% endif %}
-                        
-                    </div>
+                <p class="card-title">最近访客</p>
+                <div class="content">
+                    {% if visitors %}
+                        {% for visitor in visitors %}
+                        <a class="visitor" href="{{ visitor.url }}">
+                            <img src="{{ visitor.avatar_url }}" alt="{{ visitor.name }}" />
+                            <p>{{ visitor.name }}</p>
+                        </a>
+                        {% endfor %}
+                    {% endif %}  
                 </div>
             </div>
         </div>
@@ -159,6 +152,7 @@
                 else{
                     getNextTimes = parseInt($(".page_number").last().text()) + 1;
                     setTimeout(function(){
+                        StuCampus.alert("正在加载更多文章",1000);
                         $.ajax({
                             type: "GET",
                             url: "/?page="+getNextTimes,
