@@ -82,7 +82,6 @@ var navcome = function(navid){
 }
 function sidebaropen(){
     $(".fixed-logo").css("transform","scale(0)");
-    $(".header-nav").show();
     setTimeout(function(){
         $(".header-nav").addClass("sidebarout");
         $(".call-back").show();
@@ -95,9 +94,6 @@ function sidebarclose(){
     },500);
     $(".header-nav").removeClass("sidebarout");
     $(".call-back").hide();
-    setTimeout(function(){
-        $(".header-nav").hide();
-    },500);
     return false;
 }
 
