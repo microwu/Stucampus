@@ -51,8 +51,8 @@
                 </a>
             </div>
         {% endfor %}
-        {% if important_articles.has_next %}
-            <div class="page_number">{{ important_articles.number }}</div>
+        {% if page.has_next %}
+            <div class="page_number">{{ page.number }}</div>
         {% else %}
             <div class="page_number">没有更多文章了</div>
         {% endif %}
@@ -148,7 +148,7 @@
                     setTimeout(function(){
                         $.ajax({
                             type: "GET",
-                            url: "/?page="+getNextTimes,
+                            url: "/articles/{{ category.english_name }}?page="+getNextTimes,
                             dataType: "html",
                             success: function(data){
                                 $(".artical-content").append(data);
