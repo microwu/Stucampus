@@ -4,7 +4,7 @@
 .banner{
     position: relative;
     width: 25.0rem;
-    height: 9.733333rem;
+    height: 14.133333rem;
     overflow: hidden;
 }
 .blur{
@@ -12,7 +12,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 9.733333rem;
+    height: 14.133333rem;
     background-color: rgba(0,0,0,0.32);
 }
 .selector{
@@ -41,13 +41,13 @@
 }
 .b-container{
     width: 125.0rem;
-    height: 9.733333rem;
+    height: 14.133333rem;
 }
 .b-container a{
     position: relative;
     display: block;
     width: 25.0rem;
-    height: 9.733333rem;
+    height: 14.133333rem;
     overflow: hidden;
     text-decoration: none;
     float: left;
@@ -111,7 +111,6 @@
     height: auto;
     width: 23.4rem;
     text-decoration: none;
-    box-shadow: 0rem 0.2rem 0.2rem rgba(0,0,0,0.23);
 }
 .artical a hr{
     display: block;
@@ -123,7 +122,13 @@
 .a-pic{
     display: block;
     width: 23.4rem;
-    height: 14.133333rem;
+    height: 13.166667rem;
+    text-decoration: none;
+    overflow: hidden;
+}
+.a-pic img{
+    display: block;
+    width: 23.4rem;
     text-decoration: none;
 }
 .a-content{
