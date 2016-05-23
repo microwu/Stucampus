@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'stucampus.spider',
     'stucampus.szuspeech',
     'stucampus.minivideo',
+    'stucampus.carousels',
 
     #'stucampus.dreamer',
     'stucampus.FreeTimeCount',
