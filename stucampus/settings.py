@@ -91,6 +91,10 @@ ROOT_URLCONF = 'stucampus.urls'
 
 WSGI_APPLICATION = 'stucampus.wsgi.application'
 
+#用于login_szu的配置
+
+LOGIN_SZU_SECURE_URL=False#或True
+LOGIN_SZU_BUCKET_DOMAIN="stu.szu.edu.cn"
 
 
 
@@ -129,6 +133,7 @@ INSTALLED_APPS = (
     'stucampus.szuspeech',
     'stucampus.minivideo',
     'stucampus.carousels',
+    'stucampus.member_infor',
 
     #'stucampus.dreamer',
     'stucampus.FreeTimeCount',
