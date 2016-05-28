@@ -43,7 +43,6 @@ body{
 	    position: relative;
 	    overflow: hidden;
 	    margin: 0 auto;
-	    max-width: 1366px;
 	}
 	.inner_content{
 		margin-top: 3.466667rem;
@@ -277,7 +276,6 @@ body{
 	    position: relative;
 	    overflow: hidden;
 	    margin: 0 auto;
-	    max-width: 1366px;
 	}
 	.inner_content{
 	    margin-top: 1.733333rem;
