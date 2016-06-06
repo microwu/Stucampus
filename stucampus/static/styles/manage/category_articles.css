@@ -31,6 +31,9 @@
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
 }
+.category_add:last-child{
+    padding-top: 20px;
+}
 .category_add li{
     width: 100%;
     margin: 10px 0px;
