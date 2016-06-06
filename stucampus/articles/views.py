@@ -1,4 +1,6 @@
 #-*- coding: utf-8
+from __future__ import absolute_import, unicode_literals
+
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, Http404
 from django.core.urlresolvers import reverse
@@ -11,6 +13,9 @@ from stucampus.articles.forms import CategoryFormset
 from stucampus.articles.models import Article, Category
 from stucampus.utils import get_client_ip 
 from stucampus.account.permission import check_perms
+from stucampus.utils import DuoShuo
+
+from stucampus.custom.qiniu import upload_content_img_to_qiniu
 
 
 NO_CATEGORY = u'未分类'
@@ -52,7 +57,7 @@ class AddView(View):
 
     @method_decorator(check_perms('articles.article_add'))
     def post(self, request):
-        form = ArticleForm(request.POST)
+        form = ArticleForm(request.POST,request.FILES )
         if not form.is_valid():
             return render(request, 'articles/article-form.html',
                     {'form': form, 'post_url': reverse('articles:add')})
@@ -79,7 +84,7 @@ class ModifyView(View):
     def post(self, request):
         article_id = request.GET.get('id')
         article = get_object_or_404(Article, pk=article_id)
-        form = ArticleForm(request.POST, instance=article)
+        form = ArticleForm(request.POST,request.FILES,instance=article)
         page = request.GET.get('page')
         if not form.is_valid():
             return render(request, 'articles/article-form.html',
@@ -150,30 +155,32 @@ def article_list(request, category=None):
     article_list = Article.objects.filter(category=category,
                                           publish=True,
                                           deleted=False).order_by('-pk')
-    paginator = Paginator(article_list, 10)
+    paginator = Paginator(article_list, 5)
     try:
         page = paginator.page(request.GET.get('page'))
     except InvalidPage:
         page = paginator.page(1)
-
-    hot_articles_list = \
-        Article.objects.filter(
-                publish=True,
-                deleted=False).order_by('click_count')[:10]
-    newest_articles_list = \
-        Article.objects.filter(
-                publish=True,
-                deleted=False).order_by('-pk')[:10]
-    return render(request, 'articles/article-list.html',
-            {'page': page, 'category': category,
-             'hot_articles_list': hot_articles_list,
-             'newest_articles_list': newest_articles_list})
+    if not request.is_ajax():
+        page = DuoShuo.appendNumToArticles(page)
+        comments = DuoShuo.getRecentComment()
+        visitors = DuoShuo.getListVisitors()
+        categories=Category.objects.all().order_by("priority")
+        return render(request, 'articles/article-list.html',
+                {'page': page, 'category': category,
+                 'comments':comments,
+                 'visitors':visitors,
+                 'categories':categories})
+    else:
+        newest_articles=DuoShuo.appendNumToArticles(page)
+        return render(request, "ajax_article_list.html",{'newest_articles':newest_articles})
 
 
 def article_display(request, id=None):
     article = get_object_or_404(Article, pk=id, publish=True, deleted=False)
     article.click_count += 1
     article.save()
+    comments=DuoShuo.getListPosts(article.id)
+    article = DuoShuo.appendNumToArticle(article)
     return render(request, 'articles/article-display.html',
-            {'article': article})
+            {'article': article,'comments':comments})
 

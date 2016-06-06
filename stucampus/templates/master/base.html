@@ -1,214 +1,119 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>深圳大学学子天地 后台管理系统</title>
-	{% load html_tools %}
-	{{ 'manage/base.css' | as_css }}
-	{{ 'manage/manage_base.js' | as_js }}
-	{{ 'message-box.css' | as_css }}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>深圳大学学子天地管理系统</title>
+    {% load html_tools %}
+    {{ 'manage/base.css' | as_css }}
+    {{ 'manage/manage_base.js' | as_js }}
+    {{ 'message-box.css' | as_css }}
 
-	{{ 'plugins/jquery.min.js' | as_js }}
-	{{ 'global.js' | as_js }}
-	{{ 'admin/global.js' | as_js }}
-	{{ 'plugins/jquery.form.js' | as_js }}
-	{{ 'admin/upload.js' | as_js }}
-    {{ 'bootstrap/jquery-1.11.1.min.js' | as_js }}
-	{{ 'bootstrap/bootstrap.min.js' | as_js }}
-	{{ 'bootstrap/bootstrap.min.css' | as_css }}
-    {{ 'bootstrap/html5shiv.js' | as_js }}
-    {{ 'bootstrap/respond.min.js' | as_js }}
-	{% block htmlhead %}
-	{% endblock %}
-
-
-
+    {{ 'plugins/jquery.min.js' | as_js }}
+    {{ 'plugins/jquery.tools.min.js' | as_js }}
+    {{ 'plugins/jquery.form.js' | as_js }}
+    {{ 'global.js' | as_js }}
+    {{ 'plugins/jquery.form.js' | as_js }}
+    {{ 'admin/global.js' | as_js }}
+    {{ 'admin/upload.js' | as_js }}
+    {% block htmlhead %}{% endblock %}
 </head>
 {% block beforeload %}{% endblock %}
-<body>
-	<!--头部开始-->
-	<header class="main-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h2 class="main-header-title">后台管理系统</h2>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!--头部结束-->
-	<!--导航-->
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<ul class="nav nav-pills">
-				<li>
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#side_nav" aria-expanded="true">
-						<span>菜单</span>
-					</button>
-				</li>
-				<li class="dropdown" id="dropdown_id">
-					<a href="##" data-toggle="dropdown" class="dropdown-toggle" role="button" id="tutorial"><b>{{ user.student.screen_name }}</b><b class="caret"></b></a>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="tutorial">
-						<li role="presentation"><a href="/">返回首页</a></li>
-						{% if user.is_authenticated %}
-						<li role="presentation"><a href="{% url 'account:profile' %}">用户信息</a></li>
-						<li role="presentation"><a href="javascript:;" onclick="StuCampus.signOut()">退出登录</a></li>
-						{% else %}
-						<li role="presentation"><a href="{% url 'account:sign_in' %}">登录</a></li>
-						{% endif %}
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</nav>
+<body onload="heightCtrol()" onresize="heightCtrol()">
+    <div class="container">
+        <div id="header">
+            <h1>深圳大学学子天地 后台管理系统</h1>
+            <span class="nav" id="nav_menu">
+                <span><strong>{{ user.student.screen_name }}</strong></span>
+                <a href="/">返回首页</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'account:profile' %}">用户信息</a>
+                <a href="javascript:;" onclick="StuCampus.signOut()">退出登录</a>
+                {% else %}
+                <a href="{% url 'account:sign_in' %}">登录</a>
+                {% endif %}
+            </span>
+        </div>
+        <div class="main" id="layout_main">
+            <div class="menu_container">
+                <div class="left_menu" id="layout_left">
+                {% load permission_check %}
+                {% if user %}
+                    <a href="/manage/index">后台管理</a>
+                {% endif %}
 
-	<!--导航结束-->
-	<!--目录栏-->
-
-
-	<section class="content_wrap">
-		<div class="container">
-			<div class="row admin_nav_content">
-				<div class="col-sm-2 side_nav_box">
-					<nav class="collapse navbar-collapse" id="side_nav">
-						<ul>
-							{% load permission_check %}
-							{% if user %}
-							<li class="nav_list" ><a href="/manage/index">后台首页</a></li>
-							{% endif %}
-
-							<li>
-								<span class="item"><i class="glyphicon glyphicon-user"></i>用户与组织</span>
-								<ul>
-									{% if perms.account.student_manager %}
-									<li class="nav_list"><a href="/manage/account/list">用户管理</a><i class="icon-chevron-right"></i></li>
-									{% endif %}
-									{% if perms.organization.organization_manager %}
-									<li class="nav_list"><a href="/manage/organization/list">组织管理</a><i class="icon-chevron-right"></i></li>	
-									<li class="nav_list"><a href="/manage/organization">组织概况</a><i class="icon-chevron-right"></i></li>	
-									{% endif %}
-								</ul>
-								
-							</li>
-							<li>
-								<span class="item"><i class="glyphicon glyphicon-folder-open"></i>文章管理</span>
-								<ul>
-									{% if perms.articles.article_add %}
-									<li class="nav_list"><a href="{% url 'articles:add' %}">添加文章</a><i class="icon-chevron-right"></i></li>
-									<li class="nav_list"><a href="{% url 'articles:manage' %}">文章列表</a><i class="icon-chevron-right"></i></li>
-									{% endif %}
-									{% if perms.articles.article_manage %}
-									<li class="nav_list"><a href="{% url 'articles:category' %}">文章分类</a><i class="icon-chevron-right"></i></li>	
-									{% endif %}
-								</ul>
-								
-							</li>
-							
-							<li>
-								<span class="item"><i class="glyphicon glyphicon-pencil"></i>讲座与活动</span>
-								<ul>
-									{% if perms.account.website_admin %}
-									<li class="nav_list"><a href="{% url 'lecture:manage' %}">讲座信息</a><i class="icon-chevron-right"></i></li>
-									<li class="nav_list"><a href="{% url 'activity:manage' %}">活动信息</a><i class="icon-chevron-right"></i></li>	
-									{% endif %}
-									{% if perms.szuspeech.manager %}
-									<li class="nav_list"><a href="{% url 'szuspeech:manage_list' %}">讲座资源</a><i class="icon-chevron-right"></i></li>
-									{% endif %}
-									
-								</ul>
-								
-							</li>
-							<li>
-								<span class="item"><i class="glyphicon glyphicon-briefcase"></i>内部功能</span>
-								<ul>
-									{% if perms.FreeTimeCount.usable %}
-									<li class="nav_list"><a href="/freetimecount">空闲时间</a><i class="icon-chevron-right"></i></li>
-									{% endif %}
-								</ul>
-								
-							</li>
-							<li>
-								<span class="item"><i class="glyphicon glyphicon-th-list"></i>其他管理</span>
-								<ul>
-									{% if perms.szuspeech.manager %}
-									<li class="nav_list"><a href="{% url 'szuspeech:add' %}">资源添加</a><i class="icon-chevron-right"></i></li>
-									{% endif %}
-									{% if perms.magazine.magazine_add%}
-									<li class="nav_list"><a href="/magazine/manage/">杂志管理</a><i class="icon-chevron-right"></i></li>
-									{% endif %}
-									<!-- 以下代码未完成 -->
-									<!-- 以下为提供给社团组织的管理界面 -->
-									{% if 0 %}
-									<li class="nav_list"><a href="/organization/">组织管理</a></li>
-									{% endif %}
-									{% if perms.infor.infors_list and user|is_org_manage %}
-									<li class="nav_list"><a href="/manage/infor/list">信息管理</a></li>
-									{% endif %}
-									{% if perms.infor.infor_create and user|is_org_manage %}
-									<li class="nav_list"><a href="/manage/infor/post">发布信息</a></li>
-									{% endif %}
-									{% if perms.infor.posted_infor_view %}
-									<li class="nav_list"><a href="#">已发信息</a></li>
-									{% endif %}
-									{% if perms.magazine.magazine_view %}
-									<li class="nav_list"><a href="/magazine">社团杂志</a></li>
-									{% endif %}
-								</ul>
-								
-							</li>
-
-							
-						</ul>
-					</nav>
-				</div>
-				<!-- side_nav结束 -->
-				<!-- 管理内容 开始 -->
-				<div class="col-sm-10 admin_content">
-					<h3>{% block admin_theme %}
-						{% endblock admin_theme %}
-					</h3>
-					<main>
-						{% block content %}
-						{% endblock content %}
-					</main>
-					
-				</div>
-				<!-- 管理内容结束 -->
-			</div>
-		</div>
-	</section>
-	<footer>Power By 深圳大学学子天地 技术开发部 Copyright © 2010-2015 深圳大学学子天地 站务委员会</footer>
+                {% if perms.account.student_manager %}
+                    <a href="/manage/account/list">用户管理</a>
+                {% endif %}
+                {% if perms.magazine.magazine_add%}
+                    <a href="/magazine/manage/">杂志管理</a>
+                {% endif %}
+                {% if perms.organization.organization_manager %}
+                    <a href="/manage/organization/list">组织管理</a>
+                    <a href="/manage/organization">组织概况</a>
+                {% endif %}
+                {% if perms.articles.article_add %}
+                    <a href="{% url 'articles:add' %}">添加文章</a>
+                    <a href="{% url 'articles:manage' %}">文章列表</a>
+                {% endif %}
+                {% if perms.articles.article_manage %}
+                    <a href="{% url 'articles:category' %}">文章分类</a>
+                {% endif %}
+                {% if perms.account.website_admin %}
+                    <a href="{% url 'lecture:manage' %}">讲座信息</a>
+                    <a href="{% url 'activity:manage' %}">活动信息</a>
+                {% endif %}
+                {% if perms.szuspeech.manager %}
+                    <a href="{% url 'szuspeech:manage_list' %}">讲座资源</a>
+                    <a href="{% url 'szuspeech:add' %}">资源添加</a>
+                {% endif %}
+                {% if perms.carousels.slide_add %}
+                    <a href="{% url 'carousels:add' %}">添加焦点图</a>
+                    <a href="{% url 'carousels:manage' %}">焦点图列表</a>
+                {% endif %}
+                {% if perms.member_infor.member_add %}
+                    <a href="{% url 'member_infor:add' %}">添加通讯录人员</a>
+                    <a href="{% url 'member_infor:add_list' %}">批量添加通讯录</a>
+                    <a href="{% url 'member_infor:manage' %}">通讯录列表</a>
+                {% endif %}
+                {% if perms.member_infor.member_manage %}
+                <a href="{% url 'member_infor:pending_approve_members'%}">申请通讯录列表</a>
+                {% endif %}
+                
+                {% if perms.FreeTimeCount.usable %}
+                    <a href="{% url 'FreeTimeCount:index'%}">空闲时间</a>
+                {% endif %}
 
 
-
-
-
-
-
-
-
-
-	<!--目录栏结束-->
-	<script>
-
-		$(function()
-		{
-			var title=$(".main-header-title");
-			var url=location.href.split("/");
-			var a=$('#side_nav li a');
-			var a_href=a[0].href.split("/");
-			if(a_href[a_href.length-2]==url[url.length-2])
-			{
-				a.addClass('active');
-			}
-			else
-			{
-				a.removeClass('active');
-			}
-		});
-	</script>
+                <!-- 以下代码未完成 -->
+                <!-- 以下为提供给社团组织的管理界面 -->
+                {% if 0 %}
+                    <a href="/organization/">组织管理</a>
+                {% endif %}
+                {% if perms.infor.infors_list and user|is_org_manage %}
+                    <a href="/manage/infor/list">信息管理</a>
+                {% endif %}
+                {% if perms.infor.infor_create and user|is_org_manage %}
+                   <a href="/manage/infor/post">发布信息</a>
+                {% endif %}
+                {% if perms.infor.posted_infor_view %}
+                    <a href="#">已发信息</a>
+                {% endif %}
+                {% if perms.magazine.magazine_view %}
+                    <a href="/magazine">社团杂志</a>
+                {% endif %}
+                </div>
+            </div>
+            <div class="right_content" id="layout_content">
+            {% block content %}
+            {% endblock content %}
+            </div>
+        </div>
+        <div id="footer">
+            <p>Power By 深圳大学学子天地 技术开发部 Copyright &copy; 2010-2016 深圳大学学子天地 站务委员会</p>
+        </div>
+    </div>
 
 </body>
 </html>

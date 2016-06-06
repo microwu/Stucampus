@@ -1,35 +1,53 @@
 #-*- coding: utf-8
 from django.shortcuts import render
+from django.core.paginator import InvalidPage, Paginator
 
 from stucampus.articles.models import Article, Category
 from stucampus.lecture.models import LectureMessage
 from stucampus.activity.models import ActivityMessage
+from stucampus.utils import DuoShuo
+from stucampus.carousels.models import Slide
 
 
 def index(request):
-    # 深大焦点
-    important_articles = \
-            Article.objects.filter(
-                    publish=True,
-                    deleted=False,
-                    important=True).order_by('-pk')[:5]
-    # 不同类别的文章
-    article_dict = \
-            ((category, \
-             Article.objects.filter(
-                 publish=True,
-                 deleted=False,
-                 category=category).order_by('-pk')[:5]) \
-             for category in Category.objects.all().order_by('priority'))
-    lecture_list = \
-            LectureMessage.objects.filter(checked=True).order_by('-pk')[:7]
-    activity_list = \
-            ActivityMessage.objects.filter(checked=True).order_by('-pk')[:7]
-    return render(request, "index.html",
-                  {'important_articles': important_articles,
-                   'article_dict': article_dict,
-                   'lecture_list': lecture_list,
-                   'activity_list': activity_list})
+    if not request.is_ajax():
+        # 深大焦点
+        slides = Slide.objects.filter(
+                        published=True,
+                        deleted=False).order_by("-priority","-pk")[:5]  
+        # 最新文章
+        newest_articles = \
+                Article.objects.filter(
+                        publish=True,
+                        deleted=False).order_by('-pk')[:10]
+        paginator = Paginator(newest_articles, 5)
+        try:
+            newest_articles = paginator.page(request.GET.get('page'))
+        except InvalidPage:
+            newest_articles = paginator.page(1)
+        newest_articles=DuoShuo.appendNumToArticles(newest_articles)
+        
+        comments = DuoShuo.getRecentComment()
+        visitors = DuoShuo.getListVisitors()
+
+        categories=Category.objects.all().order_by("priority")
+          
+        return render(request, "index.html",
+                    {'slides': slides,
+                    'newest_articles':newest_articles,
+                    'comments':comments,
+                    'visitors':visitors,
+                    'categories':categories})
+    else:
+        article_list = Article.objects.filter(publish=True,deleted=False).order_by('-pk')
+        paginator = Paginator(article_list, 5)
+        try:
+            newest_articles = paginator.page(request.GET.get('page'))
+        except InvalidPage:
+            newest_articles = paginator.page(1)
+        newest_articles=DuoShuo.appendNumToArticles(newest_articles)
+        
+        return render(request, "ajax_article_list.html",{'newest_articles':newest_articles})
 
 
 def about_us(request):

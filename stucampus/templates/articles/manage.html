@@ -3,6 +3,7 @@
 {% block htmlhead %}
     {% load html_tools %}
     {{ 'manage/articles_manage.css' | as_css }}
+    {{ 'global.js' | as_js }}
     {{ form.media }}
 {% endblock %}
 
@@ -13,11 +14,11 @@
         <div class="row">
             <li style="width:70%">
                 <label>标题</label>
-                {{ article.title }}
+                <a href="{% url 'articles:display' article.pk %}">{{ article.title }}</a>
             </li>
             <li>
-                <label>文章ID</label>
-                {{ article.pk }}
+                <label>创建日期</label>
+                {{ article.create_date | date:"Y年n月d日" }}
             </li>
         </div>
         <div class="line"></div>
@@ -31,17 +32,6 @@
                 {% endif %}
             </li>
             <li>
-            <label>创建日期</label>
-            {{ article.create_date | date:"Y年n月d日" }}
-        </li>
-        </div>
-        <div class="line"></div>
-        <div class="row">
-            <li style="width:70%">
-                <label>小编</label>
-                {{ article.editor.student.true_name }}
-            </li>
-            <li>
                 <label>修改日期</label>
                 {{ article.modify_date | date:"Y年n月d日" }}
             </li>
@@ -49,12 +39,13 @@
         <div class="line"></div>
         <div class="row">
             <li style="width:70%">
-                <label>点击次数</label>
-                {{ article.click_count }}
+                <label>小编</label>
+                {{ article.editor.student.true_name }}
             </li>
+
             <li>
-                <label>创建人IP</label>
-                {{ article.create_ip }}
+                <label>浏览次数</label>
+                {{ article.click_count }}
             </li>
         </div>
         <div class="line"></div>
@@ -68,8 +59,8 @@
                 {% endif %}
             </a>
             {% endif %}
-            {% if perms.articles.article_manage %}
-            <a href="{% url 'articles:set_important' %}?id={{ article.pk }}">
+            {% if perms.articles.article_manage and perms.carousels.slide_add %}
+            <a href="{% url 'carousels:add' %}?id={{ article.pk }}&fast=True">
                 {% if article.important %}
                     从首页焦点下架
                 {% else %}
@@ -80,7 +71,7 @@
             <a href="">
                 {% if article.important %}
                     已被设为焦点
-                {% else %} 
+                {% else %}
                     尚未设为焦点
                 {% endif %}
             {% endif %}

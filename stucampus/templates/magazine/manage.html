@@ -7,33 +7,30 @@
 {% endblock %}
 
 {% block content %}
-<div class="table-responsive">
-	<table class="table table-bordered table-hover .table-condensed">
-		<thead id="table_head">
-			<tr>
-				<th>杂志</th>
-				<th>标题</th>
-				<th>期数</th>
-				<th>文件</th>						
-				<th>操作</th>
-			</tr>
-		</thead>
-		<tbody>
+<table id="magazine_list">
+	<thead>
+		<tr>
+			<td>杂志</td>
+		    <td>标题</td>
+		    <td>期数</td>
+		    <td>操作</td>
+		</tr>
+	</thead>
+	<tbody>
 		{% for magazine in list %}
 			<tr>
 				<td>{{ magazine.name }}</td>
-				<td>{{ magazine.title }}</td>
+				<td><a href="{{MEDIA_URL}}{{ magazine.pdf_file }}" target="_blank">{{ magazine.title }}</a></td>
 				<td>{{ magazine.issue }}</td>
-				<td>{{ magazine.pdf_file }}</td>
-				<td><a href="{% url 'magazine:modify' %}?id={{ magazine.id }}" class="modify">修改</a>
-		<a href="{% url 'magazine:delete' %}?id={{ magazine.id }}" class="modify">删除</a></td>
+				<td>
+					<a href="{% url 'magazine:modify' %}?id={{ magazine.id }}">修改</a>
+					<a href="{% url 'magazine:delete' %}?id={{ magazine.id }}">删除</a>
+				</td>
 			</tr>
+		{% empty %}
+			<tr><td colspan="4">无杂志</td></tr>
 		{% endfor %}
-		</tbody>
-
-	</table>
-</div>	
-<div class="add_input_box">
-	<a class=" btn btn-default" href="{% url 'magazine:add' %}">新增</a>
-</div>
+	</tbody>
+</table>
+<a href="{% url 'magazine:add' %}" class="add">新增</a>
 {% endblock %}

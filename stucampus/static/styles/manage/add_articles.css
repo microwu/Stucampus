@@ -23,11 +23,12 @@
 }
 .content input[type=text]{
     width: 300px;
-    border: solid 2px #e7e8eb;
+    border: solid 1px #e5e5e5;
     font-size: 14px;
     line-height: 200%;
     font-family: "Microsoft Yahei";
     color: #7e7e7e;
+    background: #e5e5e5;
 }
 .content textarea{
     width: 400px;
@@ -38,7 +39,13 @@
     vertical-align: middle;
     margin: 10px 0px;
     resize: none;
-    border: 2px solid #e7e8eb;
+    background: #e5e5e5;
+}
+.content_title{
+    width: 13%;
+    text-indent: 5%;
+    line-height: 300%;
+    vertical-align: middle;
 }
 .line_list{
     width: 95%;
@@ -52,14 +59,4 @@
 .error{
     color: #ff804d;
 }
-div.add
-{
-    margin: 10px 0;
-    
-    width: 100%;
-    text-align: center;
-}
-div.add input
-{
-    font-size: 20px;
-}
+

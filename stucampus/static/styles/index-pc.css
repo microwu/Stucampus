@@ -1,0 +1,403 @@
+.page_number{
+    display: none;
+}
+.slide-container{
+	position: relative;
+    width: 100%;
+	height: 9.666667rem;
+    font-size: 30px;
+	overflow: hidden;
+}
+.swiper-pagination{
+	position: absolute;
+	bottom: 0.266667rem !important;
+	display: block;
+	width: 100%;
+    text-align: center;
+	height: 0.6rem;
+	z-index: 20;
+}
+.swiper-pagination-bullet{
+    position: relative;
+    bottom: 0.1rem !important;
+	display: inline-block;
+	margin-left: 0.6rem;
+	width: 0.4rem;
+	height: 0.4rem;
+	background-color: rgb(255,255,255);
+	border-radius: 50%;
+}
+.swiper-pagination-bullet-active{
+    bottom: 0 !important;
+    width: 0.6rem;
+    height: 0.6rem;
+	background-color: rgb(91,197,190);
+}
+.swiper-slide ,.swiper-slide a{
+    position: relative;
+	display: block;
+    max-width: 1366px;
+	width: 17.166667rem;
+	height: 9.666667rem;
+	overflow: hidden;
+	text-decoration: none;
+    font-size: inherit;
+	float: left;
+    transition: left 0.5s ease-out;
+    -moz-transition: left 0.5s ease-out; /* Firefox 4 */
+    -webkit-transition: left 0.5s ease-out; /* Safari 和 Chrome */
+    -o-transition: left 0.5s ease-out; /* Opera */
+}
+.blur{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 17.166667rem;
+    height: 9.666667rem;
+    background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.64)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.64)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.64)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.64)); /* 标准的语法（必须放在最后） */
+}
+.swiper-wrapper img{
+	position: absolute;
+    top: 0;
+	width: 100%;
+	height: auto;
+	z-index: -1;
+}
+.infomation{
+    position: relative;
+    margin: 0 auto;
+    width: 17.166667rem;
+    height: 9.666667rem;
+}
+.banner_title{
+    position: absolute;
+	bottom: 2.166667rem;
+    width: 100%;
+    margin: 0 auto;
+	color: rgba(255,255,255,1);
+	font-family: "SourceHanSans-Bold","Roboto-Bold","Microsoft YaHei";
+	font-size: 0.933333rem;
+	letter-spacing: 0.4rem;
+	line-height: 1.066667rem;
+	font-weight: 500;
+	text-align: center;
+}
+.banner_describe{
+    position: absolute;
+	top: 4.933333rem;
+    width: 100%;
+	color: rgba(255,255,255,0.87);
+	font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+	font-size: 0.6rem;
+	line-height: 0.6rem;
+    font-weight: 200;
+	text-align: center;
+}
+.main-content{
+    position: relative;
+    margin:0 auto;
+    width: 32.666667rem;
+}
+.artical-content{
+    width: 19.333333rem;
+    margin-top: 1.6rem;
+    float: left;
+}
+.artical{
+    overflow: hidden;
+    border-radius: 2px;
+    width: 19.333333rem;
+    margin-bottom: 1.6rem;
+    background-color: rgba(255,255,255,0.87);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.artical:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.artical a{
+    display: block;
+    width: 19.333333rem;
+    text-decoration: none;
+}
+.artical a hr{
+    display: block;
+    width: 17.2rem;
+    margin: 0 1.066667rem;
+    height: 1px;
+    background-color: rgba(0,0,0,0.08);
+}
+.a-pic{
+    display: block;
+    width: 19.333333rem;
+    height: 10.866667rem;
+    text-decoration: none;
+    overflow: hidden;
+}
+.a-pic img {
+    display: block;
+    width: 19.333333rem;
+    text-decoration: none;
+}
+.a-content{
+    position: relative;
+    padding: 0.8rem 1.066667rem;  
+    width: 17.2rem;
+}
+.a-title{
+    color: rgba(0,0,0,0.87);
+    font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+    font-size: 0.8rem;
+    letter-spacing: 0.006rem;
+    line-height: 0.8rem;
+}
+.a-info{
+    position: relative;
+    height: 0.8rem;
+    margin: 0.8rem 0 0.3rem 0;
+    color: rgba(0,0,0,0.54);
+    font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+    font-size: 0.6rem;
+    letter-spacing: 0.012rem;
+    line-height: 0.6rem;
+}
+.a-intro{
+    color: rgba(0,0,0,0.87);
+    font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+    font-size: 0.6rem;
+    letter-spacing: 0.012rem;
+    line-height: 1.2rem;
+}
+.like-content{
+    position: relative;
+    padding: 0.8rem 1.066667rem;
+    height: 0.8rem;
+}
+.like-content span{
+    position: absolute;
+    top: 0rem;
+    height: 0.8rem;
+    width: 0.8rem;
+}
+.like-content p{
+    position: absolute;
+    top: 0rem;
+    display: block;
+    height: 0.8rem;
+    max-width: 1.133333rem;
+    font-size: 0.466667rem;
+    line-height: 0.8rem;
+    color: rgba(0,0,0,0.54);
+}
+.acomments{
+    position: absolute;
+    right: 3.46667rem;
+    width: 2.4rem;
+    height: 0.8rem;
+}
+.comment_img{
+    left: 0rem;
+    background: url(/static/images/index/comment.png);
+    background-size: 100%;
+}
+.comment_p{
+    left: 1.2rem;
+}
+
+.aeyes{
+    position: absolute;
+    right: 1.06667rem;
+    width: 2.4rem;
+    height: 0.8rem;
+}
+.eye_img{
+    left: 0rem;
+    background :url(/static/images/index/eye.png);
+    background-size: 100%;
+}
+.eye_p{
+    left: 1.2rem;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+
+.side-content{
+    display: block;
+    margin-top: 1.6rem;
+    width: 11.733333rem;
+    float: right;
+}
+
+.sidenav{
+    width: 11.733333rem;
+    background-color: rgba(255,255,255,0.87);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.card-title{
+    position: relative;
+    left: 0.8rem;
+    padding-top: 0.8rem;
+    display: block;
+    color: #5BC5BE;
+    font-size: 0.6rem;
+    font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+    letter-spacing: 0.12rem;
+    font-weight: 600;
+}
+.nav-content{
+    margin: 0 0.8rem;
+    padding: 0.533333rem 0 0.133333rem 0;
+    width: 10.133333rem;
+    overflow: hidden;
+    border-bottom: 0.033333rem solid rgba(0,0,0,0.16);
+}
+.nav-content:nth-last-child(1){
+    padding-bottom: 0.6rem;
+}
+
+.nav-content a{
+    display: block;
+    color: rgba(0,0,0,0.54);
+    font-size: 0.466667rem;
+    font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+    letter-spacing: 0;
+    font-weight: 400;
+    background-color: rgba(0,0,0,0.08);
+    float:left;
+    margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
+    padding: 0.266667rem 0.5rem;
+    text-decoration: none;
+    border-radius: 0.6rem;
+    transition: background-color 0.3s ease-out,color 0.3s ease-out;
+    -moz-transition: background-color 0.3s ease-out,color 0.3s ease-out; /* Firefox 4 */
+    -webkit-transition: background-color 0.3s ease-out,color 0.3s ease-out; /* Safari 和 Chrome */
+    -o-transition: background-color 0.3s ease-out,color 0.3s ease-out; /* Opera */
+}
+.nav-content a:hover{
+    background-color: #5BC5BE;
+    color: rgb(255,255,255);
+}
+
+.nav-content:nth-last-child(1){
+    border-bottom: none;
+}
+.side-card{
+    margin-top: 1.6rem;
+    background-color: rgba();
+    width: 11.733333rem;
+    background-color: rgba(255,255,255,0.87);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.comment{
+    position: relative;
+    margin: 0.533333rem 0.8rem 0 0.8rem;
+    padding-bottom: 0.533333rem;
+    width: 10.133333rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.comment:nth-last-child(1){
+    border-bottom: 0;
+    padding-bottom: 0.8rem;
+}
+.comment img:nth-child(1){
+    width: 1.733333rem;
+    height: 1.733333rem;
+    border-radius: 50%;
+}
+.comment span{
+    position: absolute;
+    top: 0;
+    left: 2.266667rem;
+    color: #5BC5BE;
+    font-size: 0.466667rem;
+    line-height: 0.533333rem;
+    letter-spacing: 0.011667rem;
+    font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+}
+.comment-source{
+    position: absolute;
+    top: 0.8rem;
+    left: 2.266667rem;
+    color: rgba(0,0,0,0.54);
+    font-size: 0.466667rem;
+    line-height: 0.6rem;
+    letter-spacing: 0.011667rem;
+    font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+}
+.comment-value{
+    display: -webkit-box;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    width: 10.133333rem;
+    max-height: 2.33rem;
+    margin-top: 0.266667rem;
+    color: rgba(0,0,0,0.87);
+    font-size: 0.466667rem;
+    line-height: 0.6rem;
+    letter-spacing: 0.011667rem;
+    font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+}
+.comment a{
+    display: inline-block;
+    padding-top: 0.266667rem;
+    text-decoration: none;
+    color: #5BC5BE;
+    font-size: 0.466667rem;
+    font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+}
+.content{
+    margin: 0 0.266667rem 0 0.8rem;
+    padding: 0.533333rem 0 0.266667rem 0;
+    width: 10.666667rem;
+    overflow: hidden;
+}
+.visitor{
+    float:left;
+    margin: 0 0.533333rem 0.533333rem 0;
+    border-radius: 0.533333rem;
+    background-color: rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+.visitor img{
+    float: left;
+    width: 1.066667rem;
+    height: 1.066667rem;
+    border-radius: 50%;
+}
+.visitor p{
+    display: block;
+    float: left;
+    padding-right: 0.133333rem;
+    margin: 0.233333rem;
+    max-width: 8.4rem;
+    height: 0.6rem;
+    color: rgba(0,0,0,0.54);
+    font-size: 0.533333rem;
+    letter-spacing: 0.013333rem;
+    line-height: 0.6rem;
+    font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+    overflow : hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap; 
+}
+span.findNext{
+    display: block;
+    text-align: center;
+    font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+    font-size: 0.6rem;
+    padding: 1.0667rem;
+    background-color: rgba(255,255,255,0.87);
+}

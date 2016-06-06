@@ -1,0 +1,345 @@
+.ds-thread{
+    width: 100%;
+    height: auto ;
+    background-color: #FDFDFD ;
+    overflow: hidden ;
+}
+.comments{
+    position: relative;
+    display: block;
+    height: auto;
+    padding: 1.6rem 0 0 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+@media screen and (max-width: 767px){
+    .user_info{
+        display: block;
+        position: relative;
+        height: 2.4rem;
+        overflow: hidden;
+        text-decoration: none;
+    }
+    .avatar{
+        position: absolute;
+        width: 2.4rem ;
+        height: 2.4rem ;
+        border-radius: 50% ;
+        overflow: hidden ;
+    }
+    .name{
+        position: absolute;
+        left: 4.0rem;
+        display: block ;
+        width: 10.266667rem ;
+        height: 0.933333rem; 
+        color: #5BC5BE ;
+        font-size: 0.933333rem; 
+        line-height: 0.933333rem;
+        font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+    }
+    .c_createtime{
+        position: absolute ;
+        top: 1.466667rem ;
+        left: 4.0rem ;
+        color: rgba(0,0,0,0.54) ;
+        font-size: 0.8rem ;    
+        line-height: 0.8rem;
+        font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei" ;
+    }
+    .reply,.like{
+        display: block;
+        position: absolute;
+        height: 1.06667rem;
+        font-size: 0.8rem;
+        color:rgba(0,0,0,0.54);
+        text-decoration: none;
+        overflow: hidden;
+        font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei" ;
+    }
+    .reply img,.like img{
+        float: left;
+        width: 1.06667rem;
+        height: 1.06667rem;
+    }
+    .reply p,.like p{
+        display: block;
+        float: left;
+        line-height: 1.06667rem;
+    }
+    .reply{
+        right: 3rem;
+        top: 1.8rem;
+    }
+    .like{
+        right: 0rem ;
+        top: 1.8rem;
+    }
+    .message{
+        display: block;
+        margin: 1.6rem 0.5333rem;
+        font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+        font-size: 0.933333rem;
+        line-height: 1.6rem;
+        color: rgba(0,0,0,0.87);
+    }
+    .background{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.48);
+        z-index: 1000;
+    }
+    .ds-dialog-inner{
+        position: fixed;
+        top: 35%;
+        left: 4.3333rem;
+        padding: 1.6rem;
+        width:13.1333rem;
+        height: 13.2rem;
+        background-color: rgba(255,255,255,0.87);
+        z-index: 1001;
+        box-shadow: 0 0.333rem 0.333rem rgba(0,0,0,0.22);
+    }
+    .ds-dialog-inner b{
+        font-family: "SourceHanSans-Blod","Roboto-Blod","Microsoft YaHei" ;
+        font-size: 0.8rem;
+        letter-spacing: 1.8px;
+        color: rgb(91,197,190);
+    }
+    .ds-dialog-inner input{
+        margin-top: 1.6rem;
+        font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei" ;
+        width: 13.1333rem;
+        height: 3.2rem;
+        color: rgba(0,0,0,0.87);
+        font-size: 0.9333rem;
+        background-color: rgba(255,255,255,0);
+        z-index: 200;
+        border-bottom: 1px solid rgb(91,197,190);
+    }
+    .ds-dialog-inner input:nth-of-type(2){
+        margin-top: 0;
+    }
+    .ds-dialog-inner a{
+        position: relative;
+        right: -0.5333rem;
+        display: block;
+        margin-top: 1.6rem;
+        width: 4.13333rem;
+        height: 2.4rem;
+        line-height: 2.4rem;
+        text-align: center;
+        font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei" ;
+        color: rgb(91,197,190);
+        font-size: 0.9333rem;
+        text-decoration: none;
+        float: right;
+        letter-spacing: 5.4px;
+    }
+    .add-comment{
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: -21.8rem;
+        padding:0.8rem 0;
+        height: 3.46667rem;
+        width: 21.8rem;
+        background-color: #FDFDFD;
+        z-index: 100;
+        transition:left 0.5s ease-in;
+    }
+    .backarticalfoot{
+        position: absolute;
+        top: 1.6rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-image: url('/static/images/index/close.png');
+        background-size: 100%;
+    }
+    .addcomment{
+        position: absolute;
+        top: 0.8rem;
+        left: 2.4rem;
+        width: 17.4rem;
+        overflow-y:visible; 
+        height: 3.46667rem;
+        border-bottom: 1px solid #5BC5BE;
+        resize: none;
+        outline:medium;
+    }
+    .submit{
+        position: absolute;
+        right: 0;
+        top: 1.6rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-image: url('/static/images/index/send_32.png');
+        background-size: 100%;
+    }
+    .appear{
+        left: 0;
+    }
+}
+@media screen and (min-width: 768px){
+    .user_info{
+        display: block;
+        position: relative;
+        height: 1.6rem;
+        overflow: hidden;
+        text-decoration: none;
+    }
+    .avatar{
+        position: absolute;
+        width: 1.6rem ;
+        height: 1.6rem ;
+        border-radius: 50% ;
+        overflow: hidden ;
+    }
+    .name{
+        position: absolute;
+        left: 2.6667rem;
+        display: block ;
+        width: 10.266667rem ;
+        height: 0.6rem ; 
+        color: #5BC5BE ;
+        font-size: 0.6rem ; 
+        line-height: 0.6rem;
+        font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+    }
+    .c_createtime{
+        position: absolute ;
+        top: 1rem ;
+        left: 2.66667rem ;
+        color: rgba(0,0,0,0.54) ;
+        font-size: 0.6rem ;    
+        line-height: 0.6rem;
+        font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei" ;
+    }
+    .reply,.like{
+        display: block;
+        position: absolute;
+        height: 1.06667rem;
+        font-size: 0.8rem;
+        color:rgba(0,0,0,0.54);
+        text-decoration: none;
+        overflow: hidden;
+        font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei" ;
+    }
+    .reply img,.like img{
+        float: left;
+        width: 1.06667rem;
+        height: 1.06667rem;
+    }
+    .reply p,.like p{
+        display: block;
+        float: left;
+        line-height: 1.06667rem;
+    }
+    .reply{
+        right: 3rem;
+        top: 1.8rem;
+    }
+    .like{
+        right: 0rem ;
+        top: 1.8rem;
+    }
+    .message{
+        display: block;
+        margin: 0.8rem 0 1.6rem 0;
+        font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+        font-size: 0.6rem;
+        color: rgba(0,0,0,0.87);
+    }
+    .background{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.48);
+        z-index: 1000;
+    }
+    .ds-dialog-inner{
+        position: fixed;
+        top: 40%;
+        left: 35%;
+        padding: 0.8rem;
+        width:10.6667rem;
+        height: 7.46667rem;
+        background-color: rgba(255,255,255,0.87);
+        z-index: 1001;
+    }
+    .ds-dialog-inner b{
+        font-family: "SourceHanSans-Blod","Roboto-Blod","Microsoft YaHei" ;
+        font-size: 0.8rem;
+        letter-spacing: 1.8px;
+        color: rgb(91,197,190);
+    }
+    .ds-dialog-inner input{
+        margin-top: 0.8rem;
+        font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei" ;
+        width:10.6667rem;
+        height: 1.6rem;
+        color: rgba(0,0,0,0.87);
+        font-size: 0.6rem;
+        background-color: rgba(255,255,255,0);
+        z-index: 200;
+        border-bottom: 1px solid rgb(91,197,190);
+    }
+    .ds-dialog-inner a{
+        position: relative;
+        right: -0.26667rem;
+        display: block;
+        margin-top: 0.8rem;
+        width: 4.1333rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        text-align: center;
+        font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei" ;
+        color: rgb(91,197,190);
+        font-size: 0.6rem;
+        text-decoration: none;
+        float: right;
+        letter-spacing: 5.4px;
+    }
+    .add-comment{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding:1.6rem 0;
+        height: 3.46667rem;
+        width: 100%;
+        background-color: #FDFDFD;
+        z-index: 100;
+    }
+    .backarticalfoot{
+        display: none;
+    }
+    .addcomment{
+        position: absolute;
+        top: 1.6rem;
+        left: 0;
+        width: 26.13333rem;
+        overflow-y:visible; 
+        height: 3.46667rem;
+        border-bottom: 1px solid #5BC5BE;
+        resize: none;
+        outline:medium;
+        font-size: 0.6rem;
+        color: rgba(0,0,0,0.54);
+        font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+    }
+    .submit{
+        position: absolute;
+        right: 0;
+        bottom: 1.6rem;
+        width: 1.06667rem;
+        height: 1.06667rem;
+        background-image: url('/static/images/index/send_32.png');
+        background-size: 100%;
+    }
+}

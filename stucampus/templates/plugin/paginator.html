@@ -2,57 +2,34 @@
 {% load html_tools %}
 {{ 'plugin/paginator.css' | as_css }}
 {% endblock %}
-<nav>
-	<ul class="pagination">
-	{% if page.has_previous %}
-		<li>
-
-			<a href="?page={{ page.previous_page_number }}" aria-label="Previous">
-				<span aria-hidden="true">&laquo;</span>
-			</a>
-		</li>
-	{% endif %}
-		<li><span id="page_num">{{ page.number }}</span><span class="numspan">/</span><span id="page_all_num">{{ page.paginator.num_pages }}</span></li>
-	{% if page.has_next %}
-		<li>
-			<a href="?page={{ page.next_page_number }}" aria-label="Next">
-				<span aria-hidden="true">&raquo;</span>
-			</a>
-		</li>
-	{% endif %}
-		<input type="number" class="page_num_input">
-		<button id="skip_to_page_num_btn" class="btn btn-default" type="button">跳转</button>
-	</ul>
-
-</nav>
+<div class="page">
+        <a href="{% url_replace 'page' 1 %}">首页</a>
+    {% if page.has_previous %}
+        <a href="{% url_replace 'page' page.previous_page_number %}">上一页</a>
+    {% endif %}
+    {{ page.page_range }}
+        <select id="_paginator_page">
+            {% for p in page.paginator.page_range %}
+                <option value="{{ p }}"{% if p == page.number %} selected="selected"{% endif %}>{{ p }}</option>
+            {% endfor %}
+        </select>
+        <button id="_jump_page" onclick="jump_page()">跳页</button>
+    {% if page.has_next %}
+        <a href="{% url_replace 'page' page.next_page_number %}">下一页</a>
+    {% endif %}
+        <a href="{% url_replace 'page' page.paginator.num_pages %}">尾页</a>
+</div>
 <script type="text/javascript">
-$(function(){
-	var page_num=$("#page_num").text();
-	$(".page_num_input").val(page_num);
+	function jump_page(){
+		var page = $('#_paginator_page').val();
+		location.href = replaceUrlParam( location.href, 'page', page );
+	};
 
-	//不让页码超过范围
-	$(".page_num_input").change(function(){
-		var page_all_num=$("#page_all_num").text();
-		var $page_num_input=$(".page_num_input");
-		var page_num_input=parseInt($page_num_input.val());
-		if(page_num_input<1)
-		{
-			$page_num_input.val(1);
-		
-		}
-		else if(page_num_input>page_all_num)
-		{
-			$page_num_input.val(page_all_num);
-			
-		}
-
-	});
-
-	//跳转到对应的页数
-	$("#skip_to_page_num_btn").click(function(){
-		var pn = $(".page_num_input").val(); 
- 		location.href = "?page="+pn;  
- 		});  
-	});
- 
+    function replaceUrlParam(url, paramName, paramValue){
+        var pattern = new RegExp('\\b('+paramName+'=).*?(&|$)')
+        if(url.search(pattern)>=0){
+            return url.replace(pattern,'$1' + paramValue + '$2');
+        }
+        return url + (url.indexOf('?')>0 ? '&' : '?') + paramName + '=' + paramValue
+    }
 </script>

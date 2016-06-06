@@ -1,0 +1,229 @@
+.page_number{
+    display: none;
+}
+.slide-container{
+    position: relative;
+    width: 25.0rem;
+    height: 14.133333rem;
+    overflow: hidden;
+}
+.swiper-pagination{
+    position: absolute;
+    bottom: 0.866667rem !important;
+    display: block;
+    margin:0 auto;
+    width: 100%;
+    height: 0.666667rem;
+    z-index: 20;
+    text-align: center;
+}
+.swiper-pagination-bullet{
+    position: relative;
+    bottom: 0.1rem;
+    display: inline-block;
+    margin-left: 0.6rem;
+    width: 0.466667rem;
+    height: 0.466667rem;
+    background-color: rgb(255,255,255);
+    border-radius: 50%;
+}
+.swiper-pagination-bullet-active{
+    bottom: 0;
+    width: 0.666667rem;
+    height: 0.666667rem;
+    background-color: rgb(91,197,190);
+    border-radius: 50%;
+}
+.swiper-slide ,.swiper-slide a{
+    position: relative;
+    display: block;
+    width: 25.0rem;
+    height: 14.133333rem;
+    overflow: hidden;
+    text-decoration: none;
+    float: left;
+    /*background-color: rgba(0,0,0,0.32);*/
+    transition: left 0.5s ease-out;
+    -moz-transition: left 0.5s ease-out; /* Firefox 4 */
+    -webkit-transition: left 0.5s ease-out; /* Safari 和 Chrome */
+    -o-transition: left 0.5s ease-out; /* Opera */
+}
+.blur{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25.0rem;
+    height: 14.133333rem;
+    background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.64)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.64)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.64)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.64)); /* 标准的语法（必须放在最后） */
+}
+.swiper-wrapper img{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+.banner_title{
+    position: absolute;
+    bottom: 2.133333rem;
+    width: 25.0rem;
+    color: rgba(255,255,255,0.87);
+    font-family: "SourceHanSans-Bold","Roboto-Bold","Microsoft YaHei";
+    font-size: 1.5rem;
+    letter-spacing: 0.4rem;
+    line-height: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+.banner_describe{
+    position: absolute;
+    top: 5.533333rem;
+    width: 25.0rem;
+    color: rgba(255,255,255,0.87);
+    font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    font-weight: 200;
+    text-align: center;
+}
+.banner_category{
+    display: none;
+}
+.main-content{
+    position: relative;
+    width: 25.0rem;
+    overflow: hidden;
+}
+.side-content{
+    display: none;
+}
+.artical{
+    overflow: hidden;
+    border-radius: 4px;
+    width: 23.4rem;
+    height: auto;
+    margin: 0.8rem;
+    background-color: rgba(255,255,255,0.87);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.artical a{
+    overflow: hidden;
+    height: auto;
+    width: 23.4rem;
+    text-decoration: none;
+}
+.artical a hr{
+    display: block;
+    height: 1px;
+    width: 21.266667rem;
+    margin: 0 1.066667rem;
+    background-color: rgba(0,0,0,0.08);
+}
+.a-pic{
+    display: block;
+    width: 23.4rem;
+    height: 13.166667rem;
+    text-decoration: none;
+    overflow: hidden;
+}
+.a-pic img{
+    display: block;
+    width: 23.4rem;
+    text-decoration: none;
+}
+.a-content{
+    padding: 0.8rem 1.066667rem;   
+    width: 21.266667rem;
+}
+.a-title{
+    color: rgba(0,0,0,0.87);
+    font-family: "SourceHanSans-Medium","Roboto-Medium","Microsoft YaHei";
+    font-size: 1.2rem;
+    letter-spacing: 0.006rem;
+    line-height: 1.2rem;
+}
+.a-intro{
+    color: rgba(0,0,0,0.54);
+    font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+    font-size: 0.8rem;
+    letter-spacing: 0.016rem;
+    line-height: 1.2rem;
+}
+.a-info{
+    position: relative;
+    height: 0.8rem;
+    margin: 0.8rem 0;
+    color: rgba(0,0,0,0.54);
+    font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+    font-size: 0.8rem;
+    letter-spacing: 0.02rem;
+    line-height: 0.8rem;
+}
+.like-content{
+    position: relative;
+    padding: 0.8rem 1.066667rem;
+    height: 0.8rem;
+}
+.like-content span{
+    position: absolute;
+    top: 0rem;
+    height: 0.8rem;
+    width: 0.8rem;
+}
+.like-content p{
+    position: absolute;
+    top: 0rem;
+    display: block;
+    height: 0.8rem;
+    max-width: 2.5rem;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    color: rgba(0,0,0,0.54);
+}
+.acomments{
+    position: absolute;
+    right: 4.26667rem;
+    width: 3.2rem;
+    height: 0.8rem;
+}
+.comment_img{
+    left: 0rem;
+    background: url(/static/images/index/comment.png);
+    background-size: 100%;
+}
+.comment_p{
+    left: 1.2rem;
+}
+
+.aeyes{
+    position: absolute;
+    right: 1.06667rem;
+    width: 3.2rem;
+    height: 0.8rem;
+}
+.eye_img{
+    left: 0rem;
+    background :url(/static/images/index/eye.png);
+    background-size: 100%;
+}
+.eye_p{
+    left: 1.2rem;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.findNext{
+    display: block;
+    width: 100%;
+    height: 2rem;
+    background-color: rgba(255,255,255,0.87);
+    font-size: 0.8rem;
+    line-height: 2rem;
+    font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+    text-align: center;
+}
