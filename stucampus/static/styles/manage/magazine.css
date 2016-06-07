@@ -8,9 +8,9 @@
     text-align: center;
 }
 #magazine_list thead tr td{
-	border-bottom: 1px solid gray;
-	border-collapse: collapse;
+    border-bottom: 1px solid gray;
+    border-collapse: collapse;
 }
 #magazine_list td{
-	padding: 10px;
+    padding: 10px;
 }

@@ -1,4 +1,3 @@
-
 *{
     margin: 0px;
     padding: 0px;
@@ -21,7 +20,6 @@ body{
     background: #424242;
     position: relative;
     overflow: hidden;
-    zoom:1;
 }
 #header h1{
     color: #ffffff;
@@ -30,15 +28,16 @@ body{
     vertical-align: middle;
     text-indent: 100px;
     float: left;
-    margin: 0 5px 0 10px;
-	
 }
-
 .nav{
     color: #ffffff;
     line-height: 80px;
     vertical-align: middle;
+<<<<<<< HEAD
+    margin-left: 150px;
+=======
     margin-left:150px;
+>>>>>>> d9c81124b504c6bb2483673a9fce3fe7221b30f5
 }
 .nav a{
     color: #ffffff;
@@ -133,27 +132,3 @@ body{
     border-radius: 5px;
     cursor: pointer;
 }
-.admin_content main
-{
-	text-align: left;
-}
-.admin_content nav
-{
-	text-align: center;
-	
-}
-
-
-/*页脚*/
-footer
-{
-	margin: 10px 0 10px 0;
-	text-align: center;
-}
-/*下拉框*/
-#dropdown_id
-{
-	float: right;
-	margin: 8px 10px 8px 0;
-}
-
