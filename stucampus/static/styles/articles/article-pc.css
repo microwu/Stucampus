@@ -1,0 +1,372 @@
+@media screen and (max-width: 960px){
+    html{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 768px){
+    html{
+        font-size: 20px ;
+    }
+}
+.inner_body{
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1366px;
+}
+.header{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 1.733333rem;
+    width: 100%;
+    background-color: rgb(242,242,242);
+    box-shadow: 0 0.2rem 0.2rem rgba(0,0,0,0.16);
+    z-index: 998;
+}
+.header-secshadow{
+    position: absolute;
+    height: 1.733333rem;
+    width: 100%;
+    box-shadow: 0 0.2rem 0.2rem rgba(0,0,0,0.23);
+}
+.header ul{
+    position: absolute;
+    right: 6.433333rem;
+    top: 0;
+    display: block;
+    width: 20.0rem;
+    height: 1.733333rem;
+}
+.header ul li{
+    display: block;
+    width: 4.0rem;
+    height: 1.733333rem;
+    text-align: center;
+    float: left;
+}
+.nav-active{
+    color: #5BC5BE !important;
+}
+.now{
+    position: absolute;
+    height: 1.6rem !important;
+    border-bottom: 4px solid #5BC5BE;
+    transition: left 0.5s ease-out;
+    -moz-transition: left 0.5s ease-out; /* Firefox 4 */
+    -webkit-transition: left 0.5s ease-out; /* Safari 和 Chrome */
+    -o-transition: left 0.5s ease-out; /* Opera */
+}
+.header ul li a{
+    display: block;
+    width: 4.0rem;
+    height: 1.733333rem;
+    color: rgba(0,0,0,0.54);
+    font-size: 0.533333rem;
+    font-family: "SourceHanSans-Bold","Roboto-Bold","Microsoft YaHei";
+    letter-spacing: 0.106667rem;
+    line-height: 1.733333rem;
+    text-align: center;
+    text-decoration: none;
+}
+.header ul li a:hover{
+    color: rgb(0,0,0);
+}
+.artical-header{
+    position: relative;
+    margin:  0 auto;
+    height: 18.0rem;
+    width: 32rem;
+    overflow: hidden;
+}
+.artical-cover{
+    position: absolute;
+    height: 18.0rem;
+    width: 32rem;
+}
+.artical-cover img{
+    position: absolute;
+    width: 32rem;
+}
+.blur{
+    position: absolute;
+    height: 18.0rem;
+    width: 32.0rem;
+    background-color: rgba(0,0,0,0.16);
+}
+.back{
+    display: none;
+}
+.artical-title{
+    position: absolute;
+    top: 7.9rem;
+    left: 6rem;
+    display: block;
+    display: -webkit-box;
+    width: 21rem;
+    height: auto;
+    text-align: center;
+    color: rgba(255,255,255,0.87);
+    font-size: 2.166667rem;
+    line-height: 3.2rem;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-family: "SourceHanSans-Medium","Roboto-Medium","Microsoft YaHei";
+}
+.btn{
+    display: none;
+}
+.artical-main{
+    margin: 0 auto;
+    width: 28.8rem;
+    padding: 0 1.6rem;
+    background-color: #FDFDFD;
+    overflow: hidden;
+    box-shadow: 0rem 0.1rem 0.1rem rgba(0,0,0,0.16);
+}
+.artical-information{
+    margin: 1.6rem auto;
+    width: 28.8rem;
+    text-align: center;
+    color: rgba(0,0,0,0.54);
+    font-size: 0.6rem;
+    letter-spacing: ;
+    font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+}
+.artical-information a{
+    text-decoration: none;
+    margin: 1.6rem auto;
+    width: 28.8rem;
+    text-align: center;
+    color: rgba(0,0,0,0.54);
+    font-size: 0.6rem;
+    letter-spacing: ;
+    font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+}
+.artical-text {
+    overflow: hidden;
+    font-size: 18px;
+    letter-spacing: 0.36px;
+    line-height: 36px;
+}
+.artical-text p{
+	font-size: 0.6rem !important;
+}
+.artical-text img{
+    max-width: 90%;
+    height: auto !important;
+}
+.artical-foot{
+    margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    height: 15.577rem;
+}
+.sharebox{
+    position: absolute;
+    top: 4.066667rem;
+    height: 4.8rem;
+    width: 100%;
+    font-size: 0.6rem;
+}
+.sharebox > span{
+    position: absolute;
+    left: 3.2rem;
+    line-height: 4.8rem;
+}
+.sharebox a{
+    position: absolute;
+    left: 9.6rem;
+    top: 1.26667rem;
+    width: 1.06667rem;
+    text-decoration: none;
+    color: rgba(0,0,0,0.54);
+}
+.sharebox a p{
+    position: absolute;
+    left: -0.1rem;
+    top: 1.6667rem;
+    width: 1.2rem;
+    text-decoration: none;
+    color: rgba(0,0,0,0.54);
+    line-height: 0.8rem;
+    white-space: nowrap;
+}
+.sharebox a:nth-of-type(4) p{
+    left: 0.1rem;
+    width: auto;
+}
+.sharebox a:nth-of-type(5) p{
+    left: -0.4rem;
+    width: auto;
+}
+.sharebox a:nth-of-type(3){
+    position: absolute;
+    left: 14.66667rem;
+    top: 1.26667rem;
+}
+.sharebox a:nth-of-type(4){
+    position: absolute;
+    left: 19.733334rem;
+    top: 1.26667rem;
+}
+.sharebox a:nth-of-type(5){
+    position: absolute;
+    left: 24.8rem;
+    top: 1.26667rem;
+}
+.sharebox a > span{
+	display: block;
+    width: 1.0667rem;
+    height: 1.0667rem;
+}
+.wechat_img{
+	background-image: url(/static/images/index/wechat.png);
+	background-size: 100%;
+}
+.weibo_img{
+	background-image: url(/static/images/index/sina.png);
+	background-size: 100%;
+}
+.QQ_img{
+	background-image: url(/static/images/index/QQ.png);
+	background-size: 100%;
+}
+.twitter_img{
+	background-image: url(/static/images/index/twitter.png);
+	background-size: 100%;
+}
+.artical-foot hr{
+    position: absolute;
+    top: 4.066667rem;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.08);
+    z-index: 101;
+}
+.artical-foot hr:nth-last-child(2){
+    bottom: 6.666667rem;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.08);
+    z-index: 101;
+}
+.like-content{
+    position: absolute;
+    top: 1.666667rem;
+    height: 1.0rem;
+    width: 100%;
+}
+.like-content span{
+    position: absolute;
+    height: 0.8rem;
+    width: 0.8rem;
+}
+.like-content p{
+    position: absolute;
+    display: block;
+    height: 1.0rem;
+    font-size: 0.6rem;
+    line-height: 0.8rem;
+    font-family: "SourceHanSans-Regular","Roboto-Regular","Microsoft YaHei";
+    color: rgba(0,0,0,0.54);
+}
+.editor{
+    position: absolute;
+    right: 0;
+    color: rgba(0,0,0,0.87);
+    font-size: 0.6rem;
+    letter-spacing: 0;
+    font-family: "SourceHanSans-Blod","Roboto-Blod","Microsoft YaHei";
+    font-weight: 600;
+}
+.comment_img{
+    right: 5.33333rem;
+    background-image: url(/static/images/index/comment.png);
+    background-size: 100%;
+}
+.comment_p{
+    right: 3.5rem;
+}
+.eye_img{
+    right: 1.83333rem;
+    background-image: url(/static/images/index/eye.png);
+    background-size: 100%;
+}
+.eye_p{
+    right: 0rem;
+}
+.like-content div p{
+    position: static;
+    height: 1rem;
+}
+.foot{ 
+    position: absolute;
+    bottom: 0;
+    display: block;
+    height: 4.666667rem;
+    width: 10.9rem;
+    text-decoration: none;
+}
+.foot img{
+    position: absolute;
+    top: 1.066667rem;
+    right: 4.583333rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    transition: opacity 0.5s ;
+}
+.foot img:nth-child(2){
+    display: block;
+    opacity: 0;
+}
+.foot:active img:nth-child(2){
+    opacity: 1;
+}
+.foot:hover img:nth-child(2){
+    opacity: 1;
+}
+.foot p{
+    display: block;
+    position: absolute;
+    top: 2.666667rem;
+    width: 10.9rem;
+    text-align: center;
+    color: rgba(0,0,0,0.87);
+    font-size: 0.6rem;
+    line-height: 1rem;
+    letter-spacing: 0.02rem;
+    font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+    font-weight: 200;
+}
+.share{
+    left: 0rem;
+}
+.comment{
+    right: 0rem;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear_marginR{
+    margin-right:0 !important;
+}
+
+.comment-main{
+    margin: 1.066667rem auto;
+    width: 28.8rem;
+    padding:0 1.6rem;
+    background-color: #FDFDFD;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0rem 0.1rem 0.1rem rgba(0,0,0,0.16);
+
+}
