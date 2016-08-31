@@ -1,10 +1,13 @@
 #-*- coding: utf-8
+
+
 from django.db import models
 from django.contrib.auth.models import User
 
 from DjangoUeditor.models import UEditorField
 
-from stucampus.custom.models_utils import file_save_path
+
+from stucampus.custom.qiniu import upload_content_img_to_qiniu, upload_img
 
 
 class Category(models.Model):
@@ -37,12 +40,30 @@ class Article(models.Model):
     editor = models.ForeignKey(User)
     source = models.CharField(max_length=50, blank=True, null=True)
     source_link = models.URLField(blank=True, null=True)
-    cover = models.CharField(max_length=200, blank=True, null=True)
-
-    create_date = models.DateField(auto_now_add=True)
+    cover = models.ImageField(max_length=200,default="default_cover.png")
+    create_date = models.DateField(auto_now_add=True,editable=True)
     modify_date = models.DateField(auto_now=True)
-    create_ip = models.IPAddressField(editable=False)
+    create_ip = models.GenericIPAddressField(editable=False,null=True)
     click_count = models.IntegerField(default=0, editable=False)
     deleted = models.BooleanField(default=False)
     important = models.BooleanField(default=False)
     publish = models.BooleanField(default=False)
+    likes=models.IntegerField(default=0,blank=True,null=True)#该字段由多说负责
+    comments=models.IntegerField(default=0,blank=True,null=True)#该字段由多说负责
+
+    def save(self, *args, **kwargs):
+        '''
+        数据库保存的时候，会自动上传图片到七牛
+        @author:jimczj
+        '''
+        if self.content:
+            self.content = upload_content_img_to_qiniu(unicode(self.content))
+
+        super(Article, self).save(*args, **kwargs)
+
+        if self.cover:
+            self.cover.name = upload_img(unicode(self.cover.name)) 
+            
+        super(Article, self).save(*args, **kwargs)
+        
+

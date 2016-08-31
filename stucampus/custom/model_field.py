@@ -1,8 +1,12 @@
+#-*- coding: utf-8
 from django.db import models
 from django.utils.text import capfirst
 from django.core import exceptions
 
+from DjangoUeditor.models import UEditorField
+
 from stucampus.custom.form_field import MultiSelectFormField
+from stucampus.custom.qiniu import upload_content_img_to_qiniu,upload_img
 
 
 class MultiSelectField(models.Field):
@@ -63,4 +67,9 @@ class MultiSelectField(models.Field):
         for choice_selected in arr_choices:
             l.append(choice_selected[0])
         return l
+
+
+
+
+
 

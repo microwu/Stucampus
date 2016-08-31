@@ -1,0 +1,27 @@
+
+{% load qiniu_tools %}
+{% for article in newest_articles %}
+<div class="artical">
+    <a href="{% url 'articles:display' article.pk %}">
+        <div class="a-pic"><img src=" {{ article.cover.name | scale_qiniu_img:request }}"></div>
+        <div class="a-content">
+            <span class="a-title">{{ article.title | truncatechars:19  }}</span>
+            <div class="a-info">
+                {{ article.author }} · {{ article.category }} · {{ article.create_date | date:"n月d日"}}
+            </div>
+            <p class="a-intro">{{ article.summary }}</p>
+        </div>
+        <hr />
+        <div class="like-content">
+            <!--<img class="left" src="images/like.png"><p  class="left">99999</p>-->
+            <div class="acomments"><span class="comment_img"></span><p class="comment_p">{{ article.comments }}</span></p></div>
+            <div class="aeyes"><span class="eye_img"></span><p class="eye_p">{{ article.click_count }}</p></div>
+        </div>
+    </a>
+</div>
+{% endfor %}
+{% if newest_articles.has_next %}
+<div class="page_number">{{ newest_articles.number }}</div>
+{% else %}
+<div class="page_number">没有更多文章了</div>
+{% endif %}
