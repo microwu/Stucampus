@@ -1,0 +1,309 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+body{
+	position: relative;
+	background-color:#fff;
+	font-family: "SourceHanSans-Light","Roboto-Light","Microsoft YaHei";
+}
+h1,h2,h3,h4
+{
+	text-align: center;
+}
+body p
+{
+	margin: 0;
+}
+.plan_list
+{
+	margin-top:50px;
+}
+.plan_list li
+{
+	padding: 10px;
+	border-bottom: 2px solid #eeeeee;
+	text-align: left;
+}
+.plan_author .show_last_name
+{
+	width: 36px;
+	height: 36px;
+	border-radius: 36px;
+	-moz-border-radius: 36px; 
+	-webkit-border-radius: 36px; 
+	border-radius: 36px; 
+	font-size: 18px;
+	line-height: 36px;
+	display: inline-block;
+	box-sizing: content-box;
+	color: #fff;
+	text-align: center;
+	vertical-align: middle;
+}
+.plan_author .author_name
+{
+	margin-left: 0.5rem;
+	color: #08c;
+	vertical-align: middle;
+	
+}
+.plan_list .plan_li .tip
+{
+	text-align: center;
+}
+#plan_form_error,#thought_form_error
+{
+	text-align: center;
+}
+.visi_hide
+{
+	visibility:hidden;
+}
+.right_box .function_btn
+{
+	margin-right: 0.5rem;
+	padding: 10px 5px;
+}
+.my_icon
+{
+	vertical-align: middle;
+}
+.navbar{
+	position: fixed;
+	top:0;
+	left: 0;
+	right: 0;
+	padding: 10px;
+	font-size: 1.1rem;
+	background-color: rgb(91,197,190);
+	zoom:1;
+	z-index: 999;
+
+}
+.navbar span
+{
+	vertical-align: middle;
+	font-size: 1.1rem;
+}
+}
+header{
+	zoom:1;
+}
+.clear
+{
+	clear:both;
+}
+header .logo,header .logo img
+{
+	display: inline-block;
+	height: 1.8rem;
+    width: 1.8rem;
+}
+header .theme_title
+{
+	vertical-align: middle;
+	font-size: 1.1rem;
+}
+header .loadding_box
+{
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	left: 50%;
+}
+header .navbar span
+{
+	height: 100%;
+	vertical-align: middle;
+}
+header .navbar .dropdown-menu a
+{
+	padding: 0.8rem 0.8rem;
+}
+.like_persons_wrapper
+{
+	padding: 5px;
+	color: #576b95;
+	background-color: #eeeeee;
+}
+.like_persons_wrapper img
+{
+	vertical-align: middle;
+}
+.like_persons_wrapper .like_persons
+{
+	font-size: 0.8rem;
+	word-break:break-word;
+	vertical-align: middle;
+}
+.author_szu_org,.create_time,.liked_tip ,.thought_title,.plan_record_content_box
+{
+	font-size: 0.8rem;
+	color: #7B7676;
+}
+.plan_record_content_box
+{
+	border-top: 1px dashed #7d7d7d;
+	padding: 5px 0;
+}
+.modal-body p
+{
+	vertical-align: middle;
+	margin: 0;
+}
+.function_wrapper{
+	font-size: 0.8rem;/*要跟loading一样大*/
+	overflow: hidden;
+	zoom:1;
+}
+.loading{
+	width: 0.8rem;
+	height: 0.8rem;
+}
+
+.function_wrapper .right_box 
+{
+	text-align: right;
+
+}
+.function_wrapper  span,.function_wrapper  a
+{
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+.plan_content,.plan_thought{
+	padding:5px 20px ;
+	font-size: 1.1rem;
+	word-break:break-word;
+}
+.plan_thought_box
+{
+	border-top:1px dashed #7d7d7d;
+	padding:5px 10px ;
+	word-break:break-word;
+}
+.plan_thought_box .thought_title
+{
+	margin-right: 0.7rem;
+}
+.form_p
+{
+	text-align: center;
+}
+.form_p label
+{
+	display: inline-block;
+	width: 15%;
+	vertical-align: middle;
+}
+.form_p input,.form_p textarea
+{
+	display: inline-block;
+	width: 70%;
+	text-align: left;
+}
+.form_inline
+{
+	text-align: center;
+}
+.form_inline input ,.form_inline label 
+{
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+.page_number{
+	display: none;
+}
+#search_form
+{
+	margin: 0;
+}
+
+#plan_form_error,#thought_form_error
+{
+	color: red;
+}
+.page_number.no_more_tip
+{
+	display: block;
+	text-align: center;
+	margin-top: 10px;
+	font-size: 1.1rem;
+}
+.dropdown-menu li a span,.dropdown-menu a
+{
+	text-align: left;
+	vertical-align: top;
+}
+.dropdown-menu span
+{
+	margin-right: 0.2rem;
+}
+#loading_plan_list
+{
+	text-align: center;
+	overflow: hidden;
+}
+#loading_plan_list img
+{
+	width: 30px;
+	height: 30px;
+}
+/*lottery_list start*/
+#lottery_list_table_box
+{
+	margin: 3rem 0;
+}
+#lottery_list_table_box #lottery_list_table tr th,#lottery_list_table_box #lottery_list_table tr td
+{
+	text-align: center;
+}
+
+.fix_footer
+{
+	position: fixed;
+	bottom:0;
+	left: 0;
+	right: 0;
+	padding: 10px;
+	font-size: 0.9rem;
+	text-align: center;
+	background-color: #F8F8F8;
+	zoom:1;
+	z-index: 999;
+	padding: 0;  
+}
+.tip_message
+{
+	padding: 0.5rem;
+	vertical-align:middle;   
+  	display:table-cell;  
+}
+.fix_footer #draw_btn
+{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	padding: 0.5rem;
+	background: #337ab7;
+	color: #fff;
+
+}
+.advertisement
+{
+	margin-top: 3rem; 
+	text-align: center;
+}
+.user_rank
+{
+	text-align: center;
+}
+/*lottery_list end*/
