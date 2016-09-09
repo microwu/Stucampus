@@ -13,3 +13,4 @@ urlpatterns = [
     url(r'^manage/search/?$', search, name='search'),
     url(r'^manage/modify/?$', ModifyRegisterView.as_view(), name='modify'),
 ]
+
