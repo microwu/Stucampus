@@ -36,8 +36,13 @@
     }
 }
 
+.item-5 .container h1{
+    color: black;
+}
 
-
+.item-5 .volunteer{
+    width: 180px;
+}
 
 
 

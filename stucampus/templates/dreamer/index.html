@@ -118,18 +118,19 @@
         <div class="container">
             
             <form id="register_form">
-            	<h1>报名表</h1>
+
                 {% csrf_token %}
                 {% if is_login %}
                     {% if is_registered %}
                         <p>{{szu_name}}同学你好，你已经<span class="success_msg">成功报名</span>，如需修改信息，请联系qq：649743466</p>
                     {% else %}
+                    <h1>报名表</h1>
                     <p id="error_msg"></p>
                     <p><label for="mobile">手机号码:</label><input type="text" id="mobile" name="mobile"></p>
                     <p><label for="email">邮箱:</label><input type="text" id="email" name="email"></p>
                     
                     <p>
-                    <label>你最喜欢哪个部门:</label>
+                    <label class="volunteer">你最喜欢哪个部门:</label>
                     <select name="dept1">
                         <option value="--">必选</option>
                         <option value="cbb">采编部</option>
@@ -138,7 +139,8 @@
                         <option value="sjb">设计部</option>
                         <option value="yyb">运营部</option>
                     </select>
-                    <label>你还喜欢哪个部门:</label>
+                    <br>
+                    <label class="volunteer">你还喜欢哪个部门:</label>
                     <select name="dept2">
                         <option value="--">可选</option>
                         <option value="cbb">采编部</option>
