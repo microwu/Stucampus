@@ -28,7 +28,10 @@
     .item-6 .word {
         font-size: 15px;
     }
-    input{
+    input,
+    button,
+    select,
+    textarea{
         font-size: 12px !important;
     }
 }
