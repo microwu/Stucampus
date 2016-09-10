@@ -22,10 +22,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                    <img src="/static/images/dreamer/images/menu.png">
             </button>
             <a class="navbar-brand EngName" data-menuanchor="page1" href="#page1"><img src="/static/images/stucampus_logo.png"></a>
         </div>
@@ -119,8 +116,9 @@
     </div>
     <div class="section item-5">
         <div class="container">
-            <h1>报名表</h1>
+            
             <form id="register_form">
+            	<h1>报名表</h1>
                 {% csrf_token %}
                 {% if is_login %}
                     {% if is_registered %}
@@ -131,7 +129,7 @@
                     <p><label for="email">邮箱:</label><input type="text" id="email" name="email"></p>
                     
                     <p>
-                    <label>志愿部门:</label>
+                    <label>你最喜欢哪个部门:</label>
                     <select name="dept1">
                         <option value="--">必选</option>
                         <option value="cbb">采编部</option>
@@ -140,6 +138,7 @@
                         <option value="sjb">设计部</option>
                         <option value="yyb">运营部</option>
                     </select>
+                    <label>你还喜欢哪个部门:</label>
                     <select name="dept2">
                         <option value="--">可选</option>
                         <option value="cbb">采编部</option>

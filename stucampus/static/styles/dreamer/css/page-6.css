@@ -28,6 +28,9 @@
     .item-6 .word {
         font-size: 15px;
     }
+    input{
+        font-size: 12px !important;
+    }
 }
 
 

@@ -66,13 +66,7 @@
     background-color:#5BC5BE ;
     text-decoration: none;
 }
-.navbar-default .navbar-toggle {
-    background-color: #122b40;
-}
- .navbar-default .navbar-toggle:focus{
-     background-color: #122b40;
-}
-.navbar-default .navbar-toggle:hover {
+.navbar-default {
     background-color: #122b40;
 }
 /********************å¯¼èˆªæ¡End***************************************/
@@ -128,6 +122,18 @@
 .success_msg
 {
     color: #2bb0ad;
+}
+
+.navbar-toggle{
+    padding: 0 0 0 0;
+    margin-right: 30px;
+    border: none;
+}
+.navbar-header button img {
+    width: 35px;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+    background-color: transparent;
 }
 /****************************å³ä¾§å¯¼èˆªæ End******************************/
 
